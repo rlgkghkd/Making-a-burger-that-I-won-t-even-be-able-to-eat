@@ -1,4 +1,8 @@
 abstract class Food{
+    String name;
+    Double price;
+    String info;
+
     abstract void setName(String name);
     abstract void setPrice(double price);
     abstract void setInfo(String info);
@@ -10,25 +14,22 @@ abstract class Food{
 
 public class MenuItem {
     public static class Burger extends Food{
-        private String burgerName;
-        private Double burgerPrice;
-        private String burgerInfo;
 
         public Burger(String name, double price, String info){
-            this.burgerName= name;
-            this.burgerPrice= price;
-            this.burgerInfo= info;
+            this.name= name;
+            this.price= price;
+            this.info= info;
         }
 
         @Override
-        public void setName(String name){ this.burgerName= name;}
-        public void setPrice(double price){ this.burgerPrice= price;}
-        public void setInfo(String info){ this.burgerInfo= info;}
+        public void setName(String name){ this.name= name;}
+        public void setPrice(double price){ this.price= price;}
+        public void setInfo(String info){ this.info= info;}
 
         @Override
-        public String getName(){ return this.burgerName;}
-        public Double getPrice(){ return this.burgerPrice;}
-        public String getInfo(){ return this.burgerInfo;}
+        public String getName(){ return this.name;}
+        public Double getPrice(){ return this.price;}
+        public String getInfo(){ return this.info;}
     }
 
 }
