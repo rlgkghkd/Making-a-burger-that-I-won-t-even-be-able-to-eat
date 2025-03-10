@@ -39,7 +39,7 @@ public class Kiosk {
                             double total = 0;
                             for (Food f : bag) {
                                 System.out.println(f.getName() + "\t\t" + f.getPrice() + "\t\t" + f.getInfo() + "\t\t" + f.getAmount() + "개");
-                                total += f.getPrice();
+                                total += f.getPrice()*f.getAmount();
                             }
                             System.out.println("총 금액\t" + total);
 
@@ -59,6 +59,11 @@ public class Kiosk {
                                             case (2) -> total -= total * Discount.TYPE2.getValue();
                                         }
                                         System.out.println("주문 금액은" + total + "입니다.");
+                                        for (Food f : bag) {
+                                            f.setAmount(0);
+                                        }
+                                        bag.clear();
+                                        checkFlag = false;
                                     }
                                     case (2) -> {
                                         checkFlag = false;
