@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.List;
 
 public class Menu {
@@ -13,7 +14,7 @@ public class Menu {
         menuItems.get(index).add(food);
     }
 
-    public List getCategory(int index){
+    public List getCategory (int index) {
         return menuItems.get(index);
     }
 
@@ -23,13 +24,11 @@ public class Menu {
             System.out.println(index+".\t"+ f.getName()+"\t\t"+f.getPrice()+"\t\t"+f.getInfo());
             index++;
         }
-        System.out.println("0.\texit");
+        System.out.println("0.\t이전메뉴");
     }
 
-    public void searchList(List<Food> foodList, int i){
-        Food chosenBurger= foodList.get(i-1);
-        System.out.println("선택한 메뉴는 "+chosenBurger.getName());
-        System.out.println("메뉴의 가격은 "+chosenBurger.getPrice());
-        System.out.println("메뉴의 설명은 "+chosenBurger.getInfo()+ "입니다.");
+    public Food searchList(List<Food> foodList, int i){
+        Food chosenFood= foodList.get(i-1);
+        return chosenFood;
     }
 }
