@@ -1,27 +1,33 @@
-import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Kiosk {
-    private MenuItem.Burger burger= new MenuItem.Burger("버거  ", 5.5, "버거");
-    private MenuItem.Burger hamburger= new MenuItem.Burger("햄버거", 6.0, "햄버거");
-    private MenuItem.Burger hamHamBurger= new MenuItem.Burger("햄햄버거", 6.5, "햄햄버거");
-    private MenuItem.Burger hamboogi= new MenuItem.Burger("햄부기", 6.5, "햄부기");
-    private List<Food> burgerList = Arrays.asList(burger, hamburger, hamHamBurger, hamboogi);
+    public Kiosk(Menu m){
+        Scanner sc = new Scanner(System.in);
+        boolean flag = true;
+        while (flag){
+            System.out.println("대충 메뉴판");
+            System.out.println("1.\tBugger\n2.\tDrink\n3.\tDessert");
 
-    public void showList(){
-        int index=1;
-        for (Food f: burgerList){
-            System.out.println(index+".\t"+ f.getName()+"\t"+f.getPrice()+"\t"+f.getInfo());
-            index++;
+            int categoryIndex= sc.nextInt();
+            switch (categoryIndex) {
+                case (0) -> {flag= false; break;}
+                default -> {
+                    List <Food> chosenCategory = m.getCategory(categoryIndex-1);
+                    m.showList(chosenCategory);
+
+                    int menuIndex= sc.nextInt();
+                    switch (menuIndex) {
+                        case (0) -> {
+                            flag = false;
+                            break;
+                        }
+                        default -> {
+                            m.searchList(chosenCategory, menuIndex);
+                        }
+                    }
+                }
+            }
         }
-        System.out.println("0.\texit");
-    }
-
-    public void searchList(int i){
-        Food chosenBurger= burgerList.get(i-1);
-        System.out.println("선택한 버거는 "+chosenBurger.getName());
-        System.out.println("버거의 가격은 "+chosenBurger.getPrice());
-        System.out.println("버거의 설명은 "+chosenBurger.getInfo()+ "입니다.");
     }
 }
-

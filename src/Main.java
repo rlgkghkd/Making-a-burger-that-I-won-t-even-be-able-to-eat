@@ -4,20 +4,16 @@ import java.util.Scanner;
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
     public static void main(String[] args) {
-        Scanner sc= new Scanner(System.in);
-        Kiosk kiosk= new Kiosk();
-        boolean flag= true;
 
-        while (flag==true) {
-            System.out.println("대충 메뉴판");
-            kiosk.showList();
+        Menu menu= new Menu();
 
-            // 키오스트에 input 전달
-            int input = sc.nextInt();
-            switch (input) {
-                case 0 -> { flag= false;}
-                default ->{kiosk.searchList(input);}
-            }
-        }
+        menu.addList(0, new MenuItem.Burger("버거", 5.5, "그냥버거"));
+        menu.addList(0, new MenuItem.Burger("햄버거", 5.5, "그냥햄버거"));
+        menu.addList(1, new MenuItem.Drink("사이다", 1.5, "그냥사이다"));
+        menu.addList(1, new MenuItem.Drink("검은사이다", 1.5, "콜라"));
+        menu.addList(2, new MenuItem.Dessert("감튀", 1.5, "탄수화물뭉치"));
+        menu.addList(2, new MenuItem.Dessert("라지감튀", 2.0, "탄수화물덩어리"));
+
+        Kiosk kiosk= new Kiosk(menu);
     }
 }

@@ -1,35 +1,40 @@
 abstract class Food{
-    String name;
-    Double price;
-    String info;
+    private String name;
+    private Double price;
+    private String info;
 
-    abstract void setName(String name);
-    abstract void setPrice(double price);
-    abstract void setInfo(String info);
+    public Food(String name, double price, String info){
+        setName(name);
+        setPrice(price);
+        setInfo(info);
+    }
 
-    abstract String getName();
-    abstract Double getPrice();
-    abstract String getInfo();
+    void setName(String name){ this.name= name;};
+    void setPrice(double price){ this.price= price;};
+    void setInfo(String info){ this.info= info;};
+
+    String getName(){ return this.name;};
+    Double getPrice(){ return this.price;};
+    String getInfo(){ return this.info;};
 }
 
 public class MenuItem {
+
     public static class Burger extends Food{
-
-        public Burger(String name, double price, String info){
-            this.name= name;
-            this.price= price;
-            this.info= info;
+        public Burger(String name, double price, String info) {
+            super(name, price, info);
         }
-
-        @Override
-        public void setName(String name){ this.name= name;}
-        public void setPrice(double price){ this.price= price;}
-        public void setInfo(String info){ this.info= info;}
-
-        @Override
-        public String getName(){ return this.name;}
-        public Double getPrice(){ return this.price;}
-        public String getInfo(){ return this.info;}
     }
 
+    public static class Drink extends Food{
+        public Drink(String name, double price, String info) {
+            super(name, price, info);
+        }
+    }
+
+    public static class Dessert extends Food{
+        public Dessert(String name, double price, String info) {
+            super(name, price, info);
+        }
+    }
 }
