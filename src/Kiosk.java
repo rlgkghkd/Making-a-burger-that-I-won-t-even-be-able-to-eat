@@ -34,9 +34,11 @@ public class Kiosk {
 
     public double printFood(List<Food> fl){
         double total = 0;
+        int index= 1;
         for (Food f : fl) {
-            System.out.println(f.getName() + "\t\t" + f.getPrice() + "\t\t" + f.getInfo() + "\t\t" + f.getAmount() + "개");
+            System.out.println(index + ". " + f.getName() + "\t\t" + f.getPrice() + "\t\t" + f.getInfo() + "\t\t" + f.getAmount() + "개");
             total += f.getPrice()*f.getAmount();
+            index++;
         }
         boolean flag= false;
         return total;
@@ -73,7 +75,7 @@ public class Kiosk {
                             totalPrice = printFood(bag);
                             System.out.println("총 금액\t" + totalPrice);
 
-                            System.out.println("1. 결재\t2.메뉴판");
+                            System.out.println("1. 결재\t2.메뉴판\t3.메뉴 삭제");
                             int checkout = sc.nextInt();
                             token += checkout * 10;
                             menuFlag= true;
@@ -109,6 +111,18 @@ public class Kiosk {
                         }
                         menuFlag= false;
                         sc.nextLine();
+                    }
+
+                    case (34) ->{
+                        if (menuFlag== false){
+                            System.out.println("잘못된 입력입니다.");
+                        }
+                        printFood(bag);
+                        System.out.println("삭제할 메뉴 번호를 고르시오.");
+                        int delNum= sc.nextInt();
+                        System.out.println(bag.get(delNum-1).getName()+ "을/를 삭제합니다.");
+                        bag= m.removeListItem(bag, bag.get(delNum-1));
+                        menuFlag= false;
                     }
                     
                     //장바구니 초기화

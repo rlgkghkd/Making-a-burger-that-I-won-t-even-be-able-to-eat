@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Menu {
 
@@ -29,5 +31,10 @@ public class Menu {
     public Food searchList(List<Food> foodList, int i){
         Food chosenFood= foodList.get(i-1);
         return chosenFood;
+    }
+
+    public List<Food> removeListItem(List<Food> foodList, Food f){
+        List<Food> removing= foodList.stream().filter(n-> n != f).collect(Collectors.toList());
+        return removing;
     }
 }
