@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        // 메뉴객체, 색성될 메뉴들을 담고있음
+        // MenuItem에 추상클래스 Food와 이를 상속한 Burger, Drink, Dessert 클래스가 있으며
+        // 이를 구현한 객체들을 Menu에 있는 burgerList, drinkList, dessertList에 담음
+        // Menu객체를 Kiosk에 넘겨주면 Kiosk가 Menu를 가지고 동작함.
         Menu menu= new Menu();
 
         menu.addList(0, new MenuItem.Burger("버거", 5.5, "그냥버거", 0));

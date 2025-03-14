@@ -1,3 +1,5 @@
+// Food 추상클래스
+// Burger, Drink, Dessert는 이 클래스를 상속해 구현함.
 abstract class Food{
     private String name;
     private Double price;
@@ -24,6 +26,8 @@ abstract class Food{
 
 public class MenuItem {
 
+    // 각 클래스는 Food 추상클래스를 상속
+    // 부모의 생성자 클래스를 그대로 가져와 사용함
     public static class Burger extends Food{
         public Burger(String name, double price, String info, int amount) {
             super(name, price, info, amount);
