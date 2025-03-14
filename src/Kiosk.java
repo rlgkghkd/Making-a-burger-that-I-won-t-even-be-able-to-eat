@@ -164,6 +164,7 @@ public class Kiosk {
                         // 예외처리 이후 token과 menuFlag는 그대로이므로 다시 해당 메뉴로 복귀하게 된다.
                         int delNum= sc.nextInt();
                         System.out.println(bag.get(delNum-1).getName()+ "을/를 삭제합니다.");
+                        bag.get(delNum-1).setAmount(0);
                         bag= m.removeListItem(bag, bag.get(delNum-1));
                         menuFlag= false;
                     }
