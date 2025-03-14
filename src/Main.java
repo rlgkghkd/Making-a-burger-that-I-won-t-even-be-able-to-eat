@@ -11,11 +11,11 @@ public class Main {
         // Menu객체를 Kiosk에 넘겨주면 Kiosk가 Menu를 가지고 동작함.
         Menu menu= new Menu();
 
-        menu.addList(0, new MenuItem.Burger("버거", 5.5, "그냥버거", 0));
+        menu.addList(0, new MenuItem.Burger("버거 ", 5.5, "그냥버거", 0));
         menu.addList(0, new MenuItem.Burger("햄버거", 5.5, "그냥햄버거", 0));
         menu.addList(1, new MenuItem.Drink("사이다", 1.5, "그냥사이다", 0));
         menu.addList(1, new MenuItem.Drink("검은사이다", 1.5, "콜라", 0));
-        menu.addList(2, new MenuItem.Dessert("감튀", 1.5, "탄수화물뭉치", 0));
+        menu.addList(2, new MenuItem.Dessert("감튀 ", 1.5, "탄수화물뭉치", 0));
         menu.addList(2, new MenuItem.Dessert("라지감튀", 2.0, "탄수화물덩어리", 0));
 
         Kiosk kiosk= new Kiosk(menu);

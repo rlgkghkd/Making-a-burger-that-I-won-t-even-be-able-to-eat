@@ -55,12 +55,7 @@ public class Kiosk {
     // 선택한 Food 객체 출력 메서드
     public double printFood(List<Food> fl){
         double total = 0;
-        int index= 1;
-        for (Food f : fl) {
-            System.out.println(index + ". " + f.getName() + "\t\t" + f.getPrice() + "\t\t" + f.getInfo() + "\t\t" + f.getAmount() + "개");
-            total += f.getPrice()*f.getAmount();
-            index++;
-        }
+        fl.stream().forEach(f-> System.out.println((fl.indexOf(f)+1) +". " + f.getName() + "\t\t" + f.getPrice() + "\t\t" + f.getInfo() + "\t\t" + f.getAmount() + "개"));
         boolean flag= false;
         return total;
     }
@@ -70,9 +65,7 @@ public class Kiosk {
     // 각 객체가 가진 amount 필드를 0으로 리셋하고
     // 리스트를 clear 한다.
     public void resetBag(List<Food> fl){
-        for (Food f : fl) {
-            f.setAmount(0);
-        }
+        fl.stream().forEach(food -> food.setAmount(0));
         fl.clear();
     }
 

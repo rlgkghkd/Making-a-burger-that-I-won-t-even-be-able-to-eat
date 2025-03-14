@@ -25,12 +25,9 @@ public class Menu {
     }
 
     // 리스트 출력 메서드.
-    public void showList(List<Food> foodList){
+    public void showList(List<Food> fl){
         int index=1;
-        for (Food f: foodList){
-            System.out.println(index+".\t"+ f.getName()+"\t\t"+f.getPrice()+"\t\t"+f.getInfo());
-            index++;
-        }
+        fl.stream().forEach(f-> System.out.println((fl.indexOf(f)+1) +". " + f.getName() + "\t\t" + f.getPrice() + "\t\t" + f.getInfo() + "\t\t" + f.getAmount() + "개"));
         System.out.println("0.\t이전메뉴");
     }
 
